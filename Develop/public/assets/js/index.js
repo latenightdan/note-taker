@@ -4,6 +4,10 @@ let saveNoteBtn;
 let newNoteBtn;
 let noteList;
 
+// if(window.location.pathname ==='/notes.html'){
+//   window.location.replace('/notes');
+// }
+
 if (window.location.pathname === '/notes') {
   noteTitle = document.querySelector('.note-title');
   noteText = document.querySelector('.note-textarea');
@@ -37,6 +41,7 @@ const saveNote = (note) =>
   fetch('/api/notes', {
     method: 'POST',
     headers: {
+      Accept: 'application/json',
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(note),
